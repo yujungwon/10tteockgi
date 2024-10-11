@@ -2,6 +2,7 @@ package com.project._tteockgi.domain.article.controller;
 
 import com.project._tteockgi.domain.article.entity.Article;
 import com.project._tteockgi.domain.article.repository.ArticleRepository;
+import com.project._tteockgi.domain.article.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import java.util.List;
 @Controller
 public class ArticleController {
 
-    private final ArticleRepository articleRepository;
+    private final ArticleService articleService;
 
     @GetMapping("/article")
     public String index() {
@@ -21,14 +22,11 @@ public class ArticleController {
     }
 
     @GetMapping("/article/list")
-//      @ResponseBody
     public String list(Model model) {
-        List<Article> articleList = this.articleRepository.findAll();
+        List<Article> articleList = this.articleService.getList();
         model.addAttribute("articleList", articleList);
-        {
-            return "article_list";
-        }
 
+        return "article_list";
     }
 }
 
