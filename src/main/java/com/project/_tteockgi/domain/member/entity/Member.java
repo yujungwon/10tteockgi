@@ -1,9 +1,13 @@
 package com.project._tteockgi.domain.member.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 public class Member {
 
@@ -18,15 +22,15 @@ public class Member {
     @Column
     private String password;
 
-    @Column(name = "email", nullable = false)
+    @Column(unique = true)
     private String email;
 
-    @Column(name = "name", nullable = false)
+    @Column
     private String name;
 
-    @Column(name = "created_at", nullable = false)
+    @Column
     private LocalDateTime createdAt;
 
-    @Column(name = "update_at")
+    @Column
     private LocalDateTime updatedAt;
 }
