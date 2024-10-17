@@ -1,14 +1,108 @@
-<table>
-    <thead>
-    <tr>
-        <th>제목</th>
-        <th>작성일시</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="article : ${articleList}">
-        <td th:text="${article.title}"></td>
-        <td th:text="${article.createdAt}"></td>
-    </tr>
-    </tbody>
-</table>
+<html layout:decorate="~{layout}">
+    <div layout:fragment="content">
+        <div class="grid">
+            <div>
+                <article>
+                    <header>중고 게시판</header>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col">인기 게시글</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    에어팟 팝니다.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <footer>중고게시판 바로가기</footer>
+                </article>
+            </div>
+            <div>
+                <article>
+                    <header>경매 게시판</header>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col">최신 경매글</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                            <tr>
+                                <td>자전거 경매합니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <footer>경매 게시판 바로가기</footer>
+                </article>
+            </div>
+        </div>
+    </div>
+</html>

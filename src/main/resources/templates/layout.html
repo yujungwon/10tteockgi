@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>10덕이</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+</head>
+<body>
+    <main class="container">
+        <nav>
+            <ul>
+                <li><h1><strong>10덕이</strong></h1></li>
+            </ul>
+            <ul>
+                <li><a href="#">중고거래</a></li>
+                <li><a href="#">경매</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+        </nav>
+        <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+        <th:block layout:fragment="content"></th:block>
+        <!-- 기본 템플릿 안에 삽입될 내용 End -->
+    </main>
+</body>
+</html>
