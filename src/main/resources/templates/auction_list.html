@@ -4,17 +4,20 @@
         <thead>
         <tr>
             <th>제목</th>
-            <th>작성자</th>
             <th>내용</th>
+            <th>작성자</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="auction : ${auctionList}">
-            <td th:text="${auction.title}"></td>
+            <td><a th:href="@{|/auction/detail/${auction.id}|}">[[${auction.title}]]</a></td>
             <td th:text="${auction.content}"></td>
             <td th:text="${auction.member.username}"></td>
         </tr>
         </tbody>
     </table>
+    <button>
+        <a th:href="@{/auction/form}" type="submit" class="submit-btn">내 물건 경매 올리기</a>
+    </button>
 </div>
 </html>

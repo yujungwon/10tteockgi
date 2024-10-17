@@ -22,20 +22,30 @@ public class Dev {
 
 
             // 게시글 등록
-            articleService.create("에어팟 팝니다.",  "에어팟 팝니다.", admin);
+            articleService.create("나투토 피규어 팝니다.",  "나루토 피규어 팝니다.", admin);
             articleService.create("건담 프라모델 팝니다.",  "건담 프라모델 팝니다.", member1);
             articleService.create("리바이 프라모델 팝니다.",  "리바이 프라모델 팝니다.", member1);
             articleService.create("보노보노 프라모델 팝니다.",  "보노보노 프라모델 팝니다.",  member2);
             articleService.create("워해머 40k 스페이스 마린 팝니다.",  "워해머 40k 스페이스 마린 팝니다.",  member2);
-            // 5개  더
+            articleService.create("도라에몽 피규어 팝니다","도라에몽 피규어 팝니다",member1);
+            articleService.create("원피스 피규어 팝니다","원피스 피규어 팝니다",member1);
+            articleService.create("짱구 피규어 팝니다","짱구 피규어 팝니다",member2);
+            articleService.create("코난 피규어 팝니다","코난 피규어 팝니다",member1);
+            articleService.create("조로 피규어 팝니다","조로 피규어 팝니다",member2);
+
 
             // 경매 등록
-            auctionService.create("에어팟 경매 합니다.",  "에어팟 합니다.", admin);
+            auctionService.create("나루토 피규어 경매합니다.",  "나루토 피규어 경매합니다.", admin);
             auctionService.create("건담 프라모델 경매합니다.",  "건담 프라모델 경매합니다.", member1);
             auctionService.create("리바이 프라모델 경매합니다.",  "리바이 프라모델 경매합니다.", member1);
             auctionService.create("보노보노 프라모델 경매합니다.",  "보노보노 프라모델 경매합니다.",  member2);
             auctionService.create("워해머 40k 스페이스 마린 경매합니다.",  "워해머 40k 스페이스 마린 경매합니다.",  member2);
-            // 5개  더
+            auctionService.create("도라에몽 피규어 경매합니다","도라에몽 피규어 경매합니다",member1);
+            auctionService.create("원피스 피규어 경매합니다","원피스 피규어 경매합니다",member1);
+            auctionService.create("짱구 피규어 경매합니다","짱구 피규어 경매합니다",member2);
+            auctionService.create("코난 피규어 경매합니다","코난 피규어 경매합니다",member1);
+            auctionService.create("조로 피규어 팝니다", "조로 피규어 팝니다",member2);
+
         };
     }
 
