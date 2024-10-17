@@ -1,20 +1,22 @@
 package com.project._tteockgi.domain.member.entity;
 
+import com.project._tteockgi.global.global.jpa.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class Member {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    Long id;
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Member extends BaseEntity {
 
     @Column(unique = true)
     private String username;
@@ -28,9 +30,4 @@ public class Member {
     @Column
     private String name;
 
-    @Column
-    private LocalDateTime createdAt;
-
-    @Column
-    private LocalDateTime updatedAt;
 }

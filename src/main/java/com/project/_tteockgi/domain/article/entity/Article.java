@@ -1,24 +1,21 @@
 package com.project._tteockgi.domain.article.entity;
 
 import com.project._tteockgi.domain.member.entity.Member;
+import com.project._tteockgi.global.global.jpa.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @Setter
-public class Article {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "post_id", nullable = true)
-    private Integer postId;
-
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Article extends BaseEntity {
     @ManyToOne
     private Member member;
 
@@ -27,11 +24,4 @@ public class Article {
 
     @Column
     private String title;
-
-    @Column
-    private LocalDateTime createdAt;
-
-    @Column
-    private LocalDateTime updatedAt;
-
 }
