@@ -7,58 +7,16 @@
                     <table>
                         <thead>
                         <tr>
-                            <th scope="col">인기 게시글</th>
+                            <th scope="col">최신 거래글</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    에어팟 팝니다.
-                                </td>
+                            <tr th:each="article : ${articleList}">
+                                <td th:text="${article.title}"></td>
                             </tr>
                         </tbody>
                     </table>
-                    <footer>중고게시판 바로가기</footer>
+                    <footer><a href="/article/list">중고게시판 바로가기</a></footer>
                 </article>
             </div>
             <div>
@@ -71,36 +29,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>자전거 경매합니다.</td>
+                            <tr th:each="auction : ${auctionList}">
+                                <td th:text="${auction.title}"></td>
                             </tr>
                         </tbody>
                     </table>
-                    <footer>경매 게시판 바로가기</footer>
+                    <footer><a href="/auction/list">경매 게시판 바로가기</a></footer>
                 </article>
             </div>
         </div>

@@ -9,10 +9,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="article : ${articleList}">
-            <td th:text="${article.title}"></td>
-            <td th:text="${article.content}"></td>
-            <td th:text="${article.member.username}"></td>
+        <tr th:each="auction : ${auctionList}">
+            <td th:text="${auction.title}"></td>
+            <td th:text="${auction.content}"></td>
+            <td th:text="${auction.member.username}"></td>
         </tr>
         </tbody>
     </table>
