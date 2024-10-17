@@ -1,7 +1,7 @@
 package com.project._tteockgi.domain.auction.entity;
 
 import com.project._tteockgi.domain.member.entity.Member;
-import com.project._tteockgi.global.global.jpa.BaseEntity;
+import com.project._tteockgi.global.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;

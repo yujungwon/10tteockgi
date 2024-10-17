@@ -1,4 +1,4 @@
-package com.project._tteockgi.global.global.initData;
+package com.project._tteockgi.global;
 
 import com.project._tteockgi.domain.article.service.ArticleService;
 import com.project._tteockgi.domain.auction.service.AuctionService;

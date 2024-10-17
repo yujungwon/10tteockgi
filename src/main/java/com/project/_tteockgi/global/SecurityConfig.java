@@ -1,4 +1,4 @@
-package com.project._tteockgi.global.global.security;
+package com.project._tteockgi.global;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

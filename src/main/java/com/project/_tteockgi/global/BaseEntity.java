@@ -1,4 +1,4 @@
-package com.project._tteockgi.global.global.jpa;
+package com.project._tteockgi.global;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

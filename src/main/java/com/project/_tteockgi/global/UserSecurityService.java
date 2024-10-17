@@ -1,4 +1,4 @@
-package com.project._tteockgi.global.global.security;
+package com.project._tteockgi.global;
 
 import com.project._tteockgi.domain.member.entity.Member;
 import com.project._tteockgi.domain.member.repository.MemberRepository;
