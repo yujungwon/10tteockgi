@@ -33,10 +33,8 @@ public class ArticleController {
     }
 
     @GetMapping("/article/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id) {
+    public String detail(Model model, @PathVariable("id") Long id) {
         return "article_detail";
-
-
     }
 
     @GetMapping("/article/form")
