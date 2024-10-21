@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -25,6 +26,9 @@ public class AuctionService {
         auction.setMember(member);
 
         this.auctionRepository.save(auction);
+    }
+    public Optional<Auction> findById(Long id) {
+        return auctionRepository.findById(id);
     }
 
 }

@@ -1,29 +1,45 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>10덕이</title>
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    >
-</head>
-<body>
-<main class="container">
-    <nav>
-        <ul>
-            <li><h1><strong><a href="/">10덕이</a></strong></h1></li>
-        </ul>
-        <ul>
-            <li><a href="/">메인페이지</a><li>
-            <li><a href="/like">찜</a></li>
-            <li><a href="/mylist">내 상품</a></li>
-        </ul>
-    </nav>
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+    <h1 th:text="${auction.title}">Auction Title</h1>
+    <p th:text="${auction.content}">Auction Description</p>
 
-    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+<body>
+        <h1>
+            <div>상세페이지</div>
+        </h1>
+
+        <div>상품명</div>
+        <textarea th:text="${auction.title}"></textarea>
+
+        <div>시작 가격</div>
+        <textarea></textarea>
+
+    <div>시작 시간</div>
+    <textarea></textarea>
+
+    <div>종료시간</div>
+    <textarea></textarea>
+
+    <div>상품 설명</div>
+        <textarea th:text="${auction.content}"></textarea>
+
+    <div>댓글창</div>
+    <textarea></textarea>
+    <button>댓글 등록</button>
+
+
+        <button>
+            수정하기
+        </button>
+        <button>
+            삭제하기
+        </button>
+
+    </div>
+
+<!--     기본 템플릿 안에 삽입될 내용 Start
     <th:block layout:fragment="content"></th:block>
-    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+     기본 템플릿 안에 삽입될 내용 End -->
 </main>
 </body>
 </html>

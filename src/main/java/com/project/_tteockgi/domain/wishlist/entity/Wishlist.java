@@ -5,7 +5,7 @@ import com.project._tteockgi.domain.member.entity.Member;
 import jakarta.persistence.*;
 
 @Entity
-public class WishList {
+public class Wishlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +18,24 @@ public class WishList {
     @ManyToOne
     @JoinColumn(name = "article_id")
     private Article article;
+
+    // 생성자, Getter, Setter
+    public Wishlist() {}
+
+    public Wishlist(Member member, Article article) {
+        this.member = member;
+        this.article = article;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
 }

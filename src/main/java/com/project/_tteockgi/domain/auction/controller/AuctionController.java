@@ -24,7 +24,10 @@ public class AuctionController {
     }
 
     @GetMapping("/auction/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id) {
+    public String detail(Model model, @PathVariable("id") long id) {
+            Auction auction = auctionService.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid auction ID:" + id));
+            model.addAttribute("auction", auction);
         return "auction_detail";
     }
     @GetMapping("/auction/form")

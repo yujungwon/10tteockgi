@@ -30,12 +30,27 @@ public class ArticleController {
         model.addAttribute("articleList", articleList);
 
         return "article_list";
+
     }
+/*
 
     @GetMapping("/article/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Long id) {
+    public String detail(Model model, @PathVariable("id") long id) {
+        Article article = ArticleService.findById(id);
+        model.addAttribute("article", article);
         return "article_detail";
-    }
+
+*/
+@GetMapping("/article/detail/{id}")
+public String detail(Model model, @PathVariable("id") long id) {
+    // ArticleService 인스턴스를 통해 메서드 호출
+    Article article = articleService.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + id));
+    model.addAttribute("article", article);
+    return "article_detail";
+}
+
+
 
     @GetMapping("/article/form")
     public String form(Model model) {
