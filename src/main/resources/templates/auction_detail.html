@@ -3,37 +3,19 @@
     <article>
         <header th:text="${auction.title}"></header>
         <p th:text="${auction.content}">Auction content</p>
-        <footer>
-<body>
+            <div>시작 가격</div>
+            <div></div>
 
+            <div>시작 시간</div>
+            <div></div>
 
-        <div>시작 가격</div>
-        <div></div>
-
-    <div>시작 시간</div>
-    <div></div>
-
-    <div>종료시간</div>
-    <div></div>
-
-
-    <div>댓글창</div>
-    <textarea></textarea>
-    <button>댓글 등록</button>
-
-
-        <!--<button>
-            수정하기
-        </button>
-        <button>
-            삭제하기
-        </button>
--->
-    </div>
-
-<!--     기본 템플릿 안에 삽입될 내용 Start
-    <th:block layout:fragment="content"></th:block>
-     기본 템플릿 안에 삽입될 내용 End -->
-</main>
-</body>
+            <div>종료시간</div>
+            <div></div>
+    </article>
+    <footer>
+        <div>댓글창</div>
+        <textarea></textarea>
+        <button>댓글 등록</button>
+    </footer>
+</div>
 </html>
