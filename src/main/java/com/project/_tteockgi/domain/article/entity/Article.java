@@ -26,4 +26,7 @@ public class Article extends BaseEntity {
 
     @Column
     private String title;
+
+    @Column
+    private String price;
 }

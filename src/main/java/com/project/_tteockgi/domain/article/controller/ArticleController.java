@@ -7,16 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
 public class ArticleController {
-@Autowired
+    @Autowired
     private final ArticleService articleService;
 
     @GetMapping("/article")
@@ -32,24 +33,24 @@ public class ArticleController {
         return "article_list";
 
     }
-/*
 
+    /*
+
+        @GetMapping("/article/detail/{id}")
+        public String detail(Model model, @PathVariable("id") long id) {
+            Article article = ArticleService.findById(id);
+            model.addAttribute("article", article);
+            return "article_detail";
+
+    */
     @GetMapping("/article/detail/{id}")
     public String detail(Model model, @PathVariable("id") long id) {
-        Article article = ArticleService.findById(id);
+        // ArticleService 인스턴스를 통해 메서드 호출
+        Article article = articleService.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + id));
         model.addAttribute("article", article);
         return "article_detail";
-
-*/
-@GetMapping("/article/detail/{id}")
-public String detail(Model model, @PathVariable("id") long id) {
-    // ArticleService 인스턴스를 통해 메서드 호출
-    Article article = articleService.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + id));
-    model.addAttribute("article", article);
-    return "article_detail";
-}
-
+    }
 
 
     @GetMapping("/article/form")
@@ -58,11 +59,25 @@ public String detail(Model model, @PathVariable("id") long id) {
         return "article_form";
     }
 
-    @PostMapping("/article/save")
-    public String saveArticle(@ModelAttribute Article article) {
-        articleService.saveArticle(article);
-        return "redirect:/articles";
+    @GetMapping("/article/create")
+    public String create() {
+        return "article_form";
+    }
+
+    @PostMapping("/article/create")
+    public String createArticle(@RequestParam("title") String title,
+                                @RequestParam("content") String content,
+                                @RequestParam("price") int price,
+                                RedirectAttributes redirectAttributes) {
+
+        // 게시물 생성
+        articleService.create(title, content, price);
+
+        // 게시물 생성 후 목록 페이지로 리디렉션
+        redirectAttributes.addFlashAttribute("message", "게시물이 성공적으로 등록되었습니다.");
+        return "redirect:/article/list";
     }
 }
+
 
 

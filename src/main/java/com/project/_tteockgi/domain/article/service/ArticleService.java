@@ -34,6 +34,13 @@ public class ArticleService {
     public Optional<Article> findById(long id) {
         return articleRepository.findById(id);
     }
+    public void create(String title, String content, int price) {
+        Article q = new Article();
+       q. setTitle(q.getTitle());
+        q.setContent(content);
+       q.setPrice(q.getPrice());
+        this.articleRepository.save(q);
+    }
 }
 
 

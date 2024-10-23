@@ -16,22 +16,34 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
-                        .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+                .csrf() // CSRF 보호 활성화 (기본 활성화이므로 이 구문은 생략 가능)
+                .and()
+                .authorizeHttpRequests((authorizeRequests) -> authorizeRequests
+                        .requestMatchers("/article/create", "/article/**").authenticated()  // 인증 필요
+                        .requestMatchers("/", "/home", "/login", "/register").permitAll()   // 누구나 접근 가능
+                        .anyRequest().permitAll()  // 나머지 경로는 모두 접근 허용
+                )
                 .formLogin((formLogin) -> formLogin
-                    .loginPage("/member/login")
-                    .defaultSuccessUrl("/"))
+                        .loginPage("/member/login")
+                        .defaultSuccessUrl("/")    // 로그인 성공 시 리디렉트 경로
+                        .permitAll()
+                )
                 .logout((logout) -> logout
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
-                    .logoutSuccessUrl("/")
-                    .invalidateHttpSession(true));
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+                        .logoutSuccessUrl("/")  // 로그아웃 성공 시 리디렉트 경로
+                        .invalidateHttpSession(true)
+                        .permitAll()
+                );
 
         return http.build();
     }
-    @Bean
+    9
+
+@Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -39,4 +51,5 @@ public class SecurityConfig {
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
 }
