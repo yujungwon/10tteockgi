@@ -11,8 +11,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="article : ${articleList}">
-                                <td th:text="${article.title}"></td>
+                        <tr th:each="article : ${articleList}">
+                            <td><a th:href="@{|/article/detail/${article.id}|}">[[${article.title}]]</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -27,11 +27,11 @@
                         <tr>
                             <th scope="col">최신 경매글</th>
                         </tr>
+
                         </thead>
                         <tbody>
-                            <tr th:each="auction : ${auctionList}">
-                                <td th:text="${auction.title}"></td>
-                            </tr>
+                        <tr th:each="auction : ${auctionList}">
+                            <td><a th:href="@{|/auction/detail/${auction.id}|}">[[${auction.title}]]</a></td>
                         </tbody>
                     </table>
                     <footer><a href="/auction/list">경매 게시판 바로가기</a></footer>

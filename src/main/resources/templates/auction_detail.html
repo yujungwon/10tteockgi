@@ -1,40 +1,34 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
-    <h1 th:text="${auction.title}">Auction Title</h1>
-    <p th:text="${auction.content}">Auction Description</p>
-
+    <article>
+        <header th:text="${auction.title}"></header>
+        <p th:text="${auction.content}">Auction content</p>
+        <footer>
 <body>
-        <h1>
-            <div>상세페이지</div>
-        </h1>
 
-        <div>상품명</div>
-        <textarea th:text="${auction.title}"></textarea>
 
         <div>시작 가격</div>
-        <textarea></textarea>
+        <div></div>
 
     <div>시작 시간</div>
-    <textarea></textarea>
+    <div></div>
 
     <div>종료시간</div>
-    <textarea></textarea>
+    <div></div>
 
-    <div>상품 설명</div>
-        <textarea th:text="${auction.content}"></textarea>
 
     <div>댓글창</div>
     <textarea></textarea>
     <button>댓글 등록</button>
 
 
-        <button>
+        <!--<button>
             수정하기
         </button>
         <button>
             삭제하기
         </button>
-
+-->
     </div>
 
 <!--     기본 템플릿 안에 삽입될 내용 Start
