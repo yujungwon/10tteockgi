@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -30,4 +30,7 @@ public class MemberService {
         return this.memberRepository.save(member);
     }
 
+    public Optional<Member> findById(Long id) {
+        return this.memberRepository.findById(id);
+    }
 }

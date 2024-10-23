@@ -2,6 +2,7 @@ package com.project._tteockgi.domain.wishlist.service;
 
 import com.project._tteockgi.domain.article.entity.Article;
 import com.project._tteockgi.domain.article.service.ArticleService;
+import com.project._tteockgi.domain.member.entity.Member;
 import com.project._tteockgi.domain.member.service.MemberService;
 import com.project._tteockgi.domain.wishlist.Repository.WishlistRepository;
 import com.project._tteockgi.domain.wishlist.entity.Wishlist;
@@ -28,7 +29,7 @@ public class WishlistService {
     public void addToWishlist(Long memberId, Long articleId) {
         Member member = memberService.findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid member ID"));
-        Artic             le article = articleService.findById(articleId)
+        Article article = articleService.findById(articleId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid article ID"));
 
         // 이미 찜한 게시글인지 확인

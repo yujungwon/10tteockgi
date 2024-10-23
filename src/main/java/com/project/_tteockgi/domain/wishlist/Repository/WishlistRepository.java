@@ -1,6 +1,7 @@
 package com.project._tteockgi.domain.wishlist.Repository;
 
 import com.project._tteockgi.domain.article.entity.Article;
+import com.project._tteockgi.domain.member.entity.Member;
 import com.project._tteockgi.domain.wishlist.entity.Wishlist;
 import org.springframework.data.jpa.repository.JpaRepository;
 

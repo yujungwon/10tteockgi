@@ -1,43 +1,22 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
-
- <h1 th:text="${article.title}">Article title</h1>
- <p th:text="${article.content}">Article content</p>
-
- <h1>
-  <div>상세페이지</div>
-  </h1>
-  <header>
-
-  <div>상품명</div>
-      <textarea th:text="${article.title}"></textarea>
-
-   <div>상품 가격</div>
-  <textarea></textarea>
-
-  <button>
-   구매하기
-  </button>
-
-  </header>
-
-  <div>상품 설명</div>
-    <textarea th:text="${article.content}"></textarea>
-
-<button>
-    찜
-</button>
- <button>
-    메세지 보내기
-  </button>
-
-  <button>
-  수정하기
-</button>
-
-  <button>
-    삭제하기
-  </button>
-
+<article>
+    <header th:text="${article.title}"></header>
+    <p th:text="${article.content}">Article content</p>
+    <footer>
+        <button>
+            찜
+        </button>
+        <button>
+            메세지 보내기
+        </button>
+<!--        <button>-->
+<!--            수정하기-->
+<!--        </button>-->
+<!--        <button>-->
+<!--            삭제하기-->
+<!--        </button>-->
+    </footer>
+</article>
 </div>
 </html>
