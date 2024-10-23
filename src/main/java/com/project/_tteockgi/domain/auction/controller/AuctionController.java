@@ -2,11 +2,13 @@ package com.project._tteockgi.domain.auction.controller;
 
 import com.project._tteockgi.domain.auction.entity.Auction;
 import com.project._tteockgi.domain.auction.service.AuctionService;
+import com.project._tteockgi.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @Controller
 public class AuctionController {
     private final AuctionService auctionService;
+    private  final MemberService memberService;
 
     @GetMapping("/auction/list")
     public String list(Model model) {
@@ -33,6 +36,11 @@ public class AuctionController {
     @GetMapping("/auction/form")
     public String form(){
        return "auction_form";
+    }
+
+    @PostMapping("/auction/create")
+    public String create() {
+        return "";
     }
 
 }

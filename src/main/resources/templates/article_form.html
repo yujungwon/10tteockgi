@@ -1,39 +1,35 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
-   <form action="/article/create" method="post">
-        <fieldset>
-            <label>
-                상품명
+   <form th:action="@{/article/create}" method="post">
+       <fieldset>
+           <label>
+                <h5>상품명</h5>
                 <input
-                        name="Product name"
+                        name="title"
                         placeholder="제품명을 입력하세요"
-                        autocomplete="Product name"
                 />
-            </label>
-            <label>
-                상품 내용
-                <input
-                        type="Product contents"
-                        name="Product contents"
+           </label>
+           <label>
+               <h5>상품 내용</h5>
+                <textarea
+                        name="content"
                         placeholder="제품 내용을 입력하세요"
-                        autocomplete="Product contents"
-                />
-            </label>
-            <label>
-                상품 가격
+                >
+                </textarea>
+           </label>
+           <label>
+                <h5>상품 가격</h5>
                 <input
-                        type="price"
+                        type="number"
                         name="price"
                         placeholder="가격을 입력하세요"
-                        autocomplete="price"
                 />
-            </label>
-        </fieldset>
-
-        <input
-                type="submit"
-                value="등록"
-        />
+           </label>
+           <input
+                   type="submit"
+                   value="등록"
+           />
+       </fieldset>
     </form>
 </div>
 </html>

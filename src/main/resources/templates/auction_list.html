@@ -6,7 +6,7 @@
             <th>제목</th>
             <th>내용</th>
             <th>작성자</th>
-        < /tr>
+        </tr>
         </thead>
         <tr th:each="auction : ${auctionList}">
             <td><a th:href="@{|/auction/detail/${auction.id}|}">[[${auction.title}]]</a></td>

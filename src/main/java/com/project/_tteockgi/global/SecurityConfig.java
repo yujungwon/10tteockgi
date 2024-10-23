@@ -20,8 +20,6 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf() // CSRF 보호 활성화 (기본 활성화이므로 이 구문은 생략 가능)
-                .and()
                 .authorizeHttpRequests((authorizeRequests) -> authorizeRequests
                         .requestMatchers("/article/create", "/article/**").authenticated()  // 인증 필요
                         .requestMatchers("/", "/home", "/login", "/register").permitAll()   // 누구나 접근 가능
@@ -41,7 +39,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-    9
 
 @Bean
     public PasswordEncoder passwordEncoder() {

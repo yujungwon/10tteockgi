@@ -28,5 +28,5 @@ public class Article extends BaseEntity {
     private String title;
 
     @Column
-    private String price;
+    private int price;
 }

@@ -1,49 +1,44 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
-    <form>
+    <form th:auction="@{/auction/create}" method="post">
         <fieldset>
             <label>
                 상품명
                 <input
-                        name="Product name"
-                        placeholder="상품명을 입력해주세요"
-                        autocomplete="Product name"
+                        name="title"
+                        placeholder="상품명을 입력하세요"
                 />
             </label>
             <label>
                 상품 내용
-                <input
-                        type="Product contents"
-                        name="Product contents"
-                        placeholder="상품 내용을 입력해주세요"
-                        autocomplete="Product contents"
-                />
+                <textarea
+                        name="content"
+                        placeholder="제품 내용을 입력하세요"
+                >
+                </textarea>
             </label>
             <label>
                 시작 가격
                 <input
-                        type="starting price"
-                        name="starting price"
-                        placeholder="시작 가격을 입력해줏세요"
-                        autocomplete="starting price"
+                        type="number"
+                        name="price"
+                        placeholder="가격을 입력하세요"
                 />
             </label>
             <label>
                 시작 시간
                 <input
-                        type="start time"
-                        name="start time"
+                        type="date"
+                        name="start_time"
                         placeholder="시작 시간을 입력해주새요"
-                        autocomplete="start time"
                 />
             </label>
             <label>
                 종료 시간
                 <input
-                        type="End time"
-                        name="End time"
+                        type="date"
+                        name="end_time"
                         placeholder="종료 시간을 입력해줏세요"
-                        autocomplete="End time"
                 />
             </label>
         </fieldset>

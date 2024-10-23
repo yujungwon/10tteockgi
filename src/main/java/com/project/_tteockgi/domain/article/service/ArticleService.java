@@ -19,10 +19,11 @@ public class ArticleService {
         return articleRepository.findAll();
     }
 
-    public void create(String title, String content, Member member) {
+    public void create(String title, String content, int price,Member member) {
         Article article = new Article();
-        article.setTitle(title);
+        article. setTitle(title);
         article.setContent(content);
+        article.setPrice(price);
         article.setMember(member);
         this.articleRepository.save(article);
     }
@@ -34,13 +35,7 @@ public class ArticleService {
     public Optional<Article> findById(long id) {
         return articleRepository.findById(id);
     }
-    public void create(String title, String content, int price) {
-        Article q = new Article();
-       q. setTitle(q.getTitle());
-        q.setContent(content);
-       q.setPrice(q.getPrice());
-        this.articleRepository.save(q);
-    }
+
 }
 
 
