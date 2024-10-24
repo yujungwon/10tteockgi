@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -39,11 +39,7 @@ public class AuctionController {
         return "auction_detail";
     }
 
- /* @PostMapping("/auction/create")
-    public String create() {
-      return "";
 
-  }*/
     @GetMapping("/auction/form")
     public String auctionForm(Model model) {
         model.addAttribute("auction", new Auction());  // 새로운 Auction 객체 생성
@@ -55,13 +51,44 @@ public class AuctionController {
     public String createAuction(@RequestParam("title") String title,
                                 @RequestParam("content") String content,
                                 @RequestParam("startPrice") int startPrice,
-                                @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
-                                @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd")  LocalDate endDate,
+                                @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime startDate,
+                                @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd")  LocalDateTime endDate,
                                 Principal principal) {
 
         Member member = this.memberService.getMember(principal.getName());
 
-        auctionService.create(title, content, member, startPrice, startDate, endDate);
+        auctionService.create(title, content, member, startPrice);
+        return "redirect:/auction/list";
+    }
+
+    @GetMapping("/auction/modify/{id}")
+    public String auctionModifyForm(@PathVariable("id") Long id, Model model) {
+       Auction auction = this.auctionService.findById(id).orElse(null);
+
+       model.addAttribute("auction", auction);
+
+        return "auction_modify_form";
+    }
+
+    @PostMapping("/auction/modify/{id}")
+    public String auctionModify(
+                                @PathVariable("id") Long id,
+                                @RequestParam("title") String title,
+                                @RequestParam("content") String content,
+                                @RequestParam("startPrice") int startPrice,
+                                Principal principal) {
+
+        Member member = this.memberService.getMember(principal.getName());
+        Auction auction = this.auctionService.findById(id).orElse(null);
+
+        auctionService.Modifiy(auction, title, content, member, startPrice);
+        return String.format("redirect:/auction/detail/%s", id);
+    }
+
+    @GetMapping("/auction/delete/{id}")
+    public String auctionDelete(@PathVariable("id") Long id, Model model) {
+        this.auctionService.delete(id);
+
         return "redirect:/auction/list";
     }
 }

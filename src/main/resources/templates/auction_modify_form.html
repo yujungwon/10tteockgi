@@ -1,13 +1,14 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
 
-    <form th:action="@{/auction/create}" method="post">
+    <form th:action="@{|/auction/modify/${auction.id}|}" method="post">
         <fieldset>
             <label>
                 상품명
                 <input
                         name="title"
                         placeholder="상품명을 입력하세요"
+                        th:value="${auction.title}"
                 />
             </label>
             <label>
@@ -15,6 +16,7 @@
                 <textarea
                         name="content"
                         placeholder="제품 내용을 입력하세요"
+                        th:text="${auction.content}"
                 >
                 </textarea>
             </label>
@@ -24,6 +26,7 @@
                         type="number"
                         name="startPrice"
                         placeholder="가격을 입력하세요"
+                        th:value="${auction.startPrice}"
                 />
             </label>
 <!--            <label>-->
@@ -32,6 +35,7 @@
 <!--                        type="date"-->
 <!--                        name="startDate"-->
 <!--                        placeholder="시작 시간을 입력해주새요"-->
+<!--                        th:value="${auction.startDate}"-->
 <!--                />-->
 <!--            </label>-->
 <!--            <label>-->
@@ -40,6 +44,7 @@
 <!--                        type="date"-->
 <!--                        name="endDate"-->
 <!--                        placeholder="종료 시간을 입력해줏세요"-->
+<!--                        th:value="${auction.endDate}"-->
 <!--                />-->
 <!--            </label>-->
         </fieldset>

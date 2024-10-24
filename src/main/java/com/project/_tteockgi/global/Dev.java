@@ -35,16 +35,16 @@ public class Dev {
 
 
             // 경매 등록
-            auctionService.create("나루토 피규어 경매합니다.",  "나루토 피규어 경매합니다.", admin);
-            auctionService.create("건담 프라모델 경매합니다.",  "건담 프라모델 경매합니다.", member1);
-            auctionService.create("리바이 프라모델 경매합니다.",  "리바이 프라모델 경매합니다.", member1);
-            auctionService.create("보노보노 프라모델 경매합니다.",  "보노보노 프라모델 경매합니다.",  member2);
-            auctionService.create("워해머 40k 스페이스 마린 경매합니다.",  "워해머 40k 스페이스 마린 경매합니다.",  member2);
-            auctionService.create("도라에몽 피규어 경매합니다","도라에몽 피규어 경매합니다",member1);
-            auctionService.create("원피스 피규어 경매합니다","원피스 피규어 경매합니다",member1);
-            auctionService.create("짱구 피규어 경매합니다","짱구 피규어 경매합니다",member2);
-            auctionService.create("코난 피규어 경매합니다","코난 피규어 경매합니다",member1);
-            auctionService.create("조로 피규어 팝니다", "조로 피규어 팝니다",member2);
+            auctionService.create("나루토 피규어 경매합니다.",  "나루토 피규어 경매합니다.", admin, 10000);
+            auctionService.create("건담 프라모델 경매합니다.",  "건담 프라모델 경매합니다.", member1, 10000);
+            auctionService.create("리바이 프라모델 경매합니다.",  "리바이 프라모델 경매합니다.", member1, 10000);
+            auctionService.create("보노보노 프라모델 경매합니다.",  "보노보노 프라모델 경매합니다.",  member2, 10000);
+            auctionService.create("워해머 40k 스페이스 마린 경매합니다.",  "워해머 40k 스페이스 마린 경매합니다.",  member2, 10000);
+            auctionService.create("도라에몽 피규어 경매합니다","도라에몽 피규어 경매합니다",member1, 10000);
+            auctionService.create("원피스 피규어 경매합니다","원피스 피규어 경매합니다",member1, 10000);
+            auctionService.create("짱구 피규어 경매합니다","짱구 피규어 경매합니다",member2, 10000);
+            auctionService.create("코난 피규어 경매합니다","코난 피규어 경매합니다",member1, 10000);
+            auctionService.create("조로 피규어 팝니다", "조로 피규어 팝니다",member2, 10000);
 
         };
     }
