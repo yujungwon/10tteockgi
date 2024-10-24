@@ -35,18 +35,10 @@ public class ArticleController {
 
     }
 
-    /*
 
-        @GetMapping("/article/detail/{id}")
-        public String detail(Model model, @PathVariable("id") long id) {
-            Article article = ArticleService.findById(id);
-            model.addAttribute("article", article);
-            return "article_detail";
-
-    */
     @GetMapping("/article/detail/{id}")
     public String detail(Model model, @PathVariable("id") long id) {
-        // ArticleService 인스턴스를 통해 메서드 호출
+
         Article article = articleService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + id));
         model.addAttribute("article", article);
@@ -60,10 +52,10 @@ public class ArticleController {
         return "article_form";
     }
 
-    @GetMapping("/article/create")
+  /*  @GetMapping("/article/create")
     public String create() {
         return "article_form";
-    }
+    }*/
 
     @PostMapping("/article/create")
     public String createArticle(@RequestParam("title") String title,
@@ -72,7 +64,7 @@ public class ArticleController {
 
         Member member = this.memberService.getMember(principal.getName());
 
-        // 게시물 생성
+
         articleService.create(title, content, price, member);
 
         return "redirect:/article/list";

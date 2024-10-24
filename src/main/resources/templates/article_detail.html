@@ -3,7 +3,8 @@
 <article>
     <header th:text="${article.title}"></header>
     <p th:text="${article.content}">Article content</p>
-    <div>가격</div>
+    <div
+            <a th:text="${article.price}">가격</div>
     <footer>
         <button>
             찜

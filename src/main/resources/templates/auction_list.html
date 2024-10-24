@@ -8,6 +8,7 @@
             <th>작성자</th>
         </tr>
         </thead>
+        <tbody>
         <tr th:each="auction : ${auctionList}">
             <td><a th:href="@{|/auction/detail/${auction.id}|}">[[${auction.title}]]</a></td>
         <td th:text="${auction.content}"></td>

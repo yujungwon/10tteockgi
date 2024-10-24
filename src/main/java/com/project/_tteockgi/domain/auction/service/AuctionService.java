@@ -18,7 +18,7 @@ public class AuctionService {
         return auctionRepository.findAll();
     }
 
-    public void create (String title, String content, Member member) {
+    public void create(String title, String content, Member member) {
         Auction auction = new Auction();
 
         auction.setTitle(title);
@@ -27,8 +27,18 @@ public class AuctionService {
 
         this.auctionRepository.save(auction);
     }
+
     public Optional<Auction> findById(Long id) {
         return auctionRepository.findById(id);
     }
+
+    public void save(Auction auction) {
+        auctionRepository.save(auction);
+    }
+
+    public List<Auction> findAll() {
+        return auctionRepository.findAll();
+    }
+
 
 }

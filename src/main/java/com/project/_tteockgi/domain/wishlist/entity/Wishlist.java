@@ -19,7 +19,7 @@ public class Wishlist {
     @JoinColumn(name = "article_id")
     private Article article;
 
-    // 생성자, Getter, Setter
+
     public Wishlist() {}
 
     public Wishlist(Member member, Article article) {

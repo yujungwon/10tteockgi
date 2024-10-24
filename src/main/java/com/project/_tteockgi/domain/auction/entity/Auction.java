@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -21,15 +23,20 @@ public class Auction extends BaseEntity {
         @ManyToOne
         private Member member;
 
-        @Column(length = 255)
+        @Column
         private String content;
 
         @Column(length = 255)
         private String title;
 
-//        @Column(length = 255)
-//        private String comment;
+        @Column
+        private int startPrice;
 
-//        @Column
-//        private LocalDateTime startTime;
+        @Column
+        private LocalDateTime startDate;
+
+        @Column
+        private LocalDateTime endDate;
 }
+
+
