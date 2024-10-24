@@ -3,21 +3,14 @@
 <article>
     <header th:text="${article.title}"></header>
     <p th:text="${article.content}">Article content</p>
-    <div
-            <a th:text="${article.price}">가격</div>
+    <span>가격: </span>
+    <span th:text="${article.price}"></span>
+
     <footer>
-        <button>
-            찜
-        </button>
-        <button>
-            메세지 보내기
-        </button>
-<!--        <button>-->
-<!--            수정하기-->
-<!--        </button>-->
-<!--        <button>-->
-<!--            삭제하기-->
-<!--        </button>-->
+        <a th:href="@{||}" type="button">찜</a>
+        <a th:href="@{||}" type="button">메세지 보내기</a>
+        <a th:href="@{|/article/modify/${article.id}|}" type="button">수정</a>
+        <a th:href="@{|/article/delete/${article.id}|}" type="button">삭제</a>
     </footer>
 </article>
 </div>

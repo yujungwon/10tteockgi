@@ -52,10 +52,6 @@ public class ArticleController {
         return "article_form";
     }
 
-  /*  @GetMapping("/article/create")
-    public String create() {
-        return "article_form";
-    }*/
 
     @PostMapping("/article/create")
     public String createArticle(@RequestParam("title") String title,
@@ -66,6 +62,38 @@ public class ArticleController {
 
 
         articleService.create(title, content, price, member);
+
+        return "redirect:/article/list";
+    }
+
+    @GetMapping("/article/modify/{id}")
+    public String modifyArticle(@PathVariable("id") Long id, Model model) {
+        Article article = this.articleService.findById(id).orElse(null);
+        model.addAttribute("article", article);
+
+        return "article_modify_form";
+    }
+
+    @PostMapping("/article/modify/{id}")
+    public String modifyArticle(@PathVariable("id") Long id, @RequestParam("title") String title,
+                                @RequestParam("content") String content,
+                                @RequestParam("price") int price, Principal principal) {
+
+
+        Article article = this.articleService.findById(id).orElse(null);
+
+        if (article == null) {
+            return "redirect:/";
+        }
+
+        this.articleService.modify(article, title, content, price);
+
+        return String.format("redirect:/article/detail/%d", id);
+    }
+
+    @GetMapping("/article/delete/{id}")
+    public String modifyArticle(@PathVariable("id") Long id) {
+        this.articleService.delete(id);
 
         return "redirect:/article/list";
     }

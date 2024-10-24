@@ -1,0 +1,40 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+
+
+   <form th:action="@{|/article/modify/${article.id}|}" method="post">
+       <fieldset>
+           <label>
+                <h5>상품명</h5>
+                <input
+                        name="title"
+                        placeholder="제품명을 입력하세요"
+                        th:value="${article.title}"
+                />
+           </label>
+           <label>
+               <h5>상품 내용</h5>
+                <textarea
+                        name="content"
+                        placeholder="제품 내용을 입력하세요"
+                        th:text="${article.content}"
+                >
+                </textarea>
+           </label>
+           <label>
+                <h5>상품 가격</h5>
+                <input
+                        type="number"
+                        name="price"
+                        placeholder="가격을 입력하세요"
+                        th:value="${article.price}"
+                />
+           </label>
+           <input
+                   type="submit"
+                   value="수정"
+           />
+       </fieldset>
+    </form>
+</div>
+</html>

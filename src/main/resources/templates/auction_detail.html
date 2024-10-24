@@ -13,9 +13,11 @@
             <div></div>
     </article>
     <footer>
-        <div>댓글창</div>
-        <textarea></textarea>
-        <button>댓글 등록</button>
+        <a th:href="@{|/article/modify/${auction.id}|}" type="button">수정</a>
+        <a th:href="@{|/article/delete/${auction.id}|}" type="button">삭제</a>
     </footer>
+    <div>댓글창</div>
+    <textarea></textarea>
+    <button>댓글 등록</button>
 </div>
 </html>

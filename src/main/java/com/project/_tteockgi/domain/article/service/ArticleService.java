@@ -36,6 +36,16 @@ public class ArticleService {
         return articleRepository.findById(id);
     }
 
+    public void modify(Article article, String title, String content, int price) {
+            article.setTitle(title);
+            article.setContent(content);
+            article.setPrice(price);
+        this.articleRepository.save(article);
+    }
+
+    public void delete(Long id) {
+        this.articleRepository.deleteById(id);
+    }
 }
 
 
