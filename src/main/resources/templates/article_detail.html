@@ -5,13 +5,13 @@
     <p th:text="${article.content}">Article content</p>
     <span>가격: </span>
     <span th:text="${article.price}"></span>
-
     <footer>
-        <a th:href="@{||}" type="button">찜</a>
-        <a th:href="@{||}" type="button">메세지 보내기</a>
         <a th:href="@{|/article/modify/${article.id}|}" type="button">수정</a>
         <a th:href="@{|/article/delete/${article.id}|}" type="button">삭제</a>
     </footer>
+    <div>댓글창</div>
+    <textarea></textarea>
+    <button>댓글 등록</button>
 </article>
 </div>
 </html>
