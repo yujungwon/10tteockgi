@@ -2,19 +2,17 @@
 <div layout:fragment="content">
     <article>
         <header th:text="${auction.title}"></header>
-        <p th:text="${auction.content}">Auction content</p>
-            <div>시작 가격</div>
-            <div></div>
-
-            <div>시작 시간</div>
-            <div></div>
-
-            <div>종료시간</div>
-            <div></div>
+        <p th:text="${auction.content}"></p>
+        <div>시작 가격</div>
+        <div th:text="${auction.startPrice}"></div>
+        <div>시작 시간</div>
+        <div th:text="${#temporals.format(auction.startDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
+        <div>종료시간</div>
+        <div th:text="${#temporals.format(auction.endDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
     </article>
     <footer>
-        <a th:href="@{|/article/modify/${auction.id}|}" type="button">수정</a>
-        <a th:href="@{|/article/delete/${auction.id}|}" type="button">삭제</a>
+        <a th:href="@{|/auction/modify/${auction.id}|}" type="button">수정</a>
+        <a th:href="@{|/auction/delete/${auction.id}|}" type="button">삭제</a>
     </footer>
     <div>댓글창</div>
     <textarea></textarea>

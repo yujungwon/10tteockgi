@@ -6,6 +6,7 @@ import com.project._tteockgi.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,17 @@ public class AuctionService {
         return auctionRepository.findById(id);
     }
 
-    public void save(Auction auction) {
+    public void create(String title, String content, Member member, int startPrice, LocalDate startDate, LocalDate  endDate) {
+        Auction auction = new Auction();
+
+        auction.setMember(member);
+        auction.setTitle(title);
+        auction.setContent(content);
+        auction.setStartPrice(startPrice);
+        auction.setStartDate(startDate.atStartOfDay());
+        auction.setEndDate(endDate.atStartOfDay());
+
+
         auctionRepository.save(auction);
     }
 

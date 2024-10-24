@@ -1,7 +1,7 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content">
 
-    <form th:auction="@{/auction/create}" method="post">
+    <form th:action="@{/auction/create}" method="post">
         <fieldset>
             <label>
                 상품명
@@ -22,7 +22,7 @@
                 시작 가격
                 <input
                         type="number"
-                        name="price"
+                        name="startPrice"
                         placeholder="가격을 입력하세요"
                 />
             </label>
@@ -30,7 +30,7 @@
                 시작 시간
                 <input
                         type="date"
-                        name="start_time"
+                        name="startDate"
                         placeholder="시작 시간을 입력해주새요"
                 />
             </label>
@@ -38,7 +38,7 @@
                 종료 시간
                 <input
                         type="date"
-                        name="end_time"
+                        name="endDate"
                         placeholder="종료 시간을 입력해줏세요"
                 />
             </label>

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -55,16 +55,13 @@ public class AuctionController {
     public String createAuction(@RequestParam("title") String title,
                                 @RequestParam("content") String content,
                                 @RequestParam("startPrice") int startPrice,
-                                @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
+                                @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
+                                @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd")  LocalDate endDate,
                                 Principal principal) {
-
 
         Member member = this.memberService.getMember(principal.getName());
 
-        LocalDateTime startDate = LocalDateTime.now();
-
-        Auction auction = new Auction(member, title, content, startPrice, startDate, endDate);
-        auctionService.save(auction);
+        auctionService.create(title, content, member, startPrice, startDate, endDate);
         return "redirect:/auction/list";
     }
 }
