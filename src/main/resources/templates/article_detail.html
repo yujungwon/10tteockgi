@@ -10,8 +10,15 @@
         <a th:href="@{|/article/delete/${article.id}|}" type="button">삭제</a>
     </footer>
     <div>댓글창</div>
-    <textarea></textarea>
-    <button>댓글 등록</button>
+    <form th:action="@{|/article/comment/${article.id}|}" method="post">
+        <textarea name="content"></textarea>
+        <button type="submit">댓글 등록</button>
+    </form>
+
+    <ul>
+        <li th:each="comment : ${article.commentList}">[[${comment.content}]]</li>
+    </ul>
+
 </article>
 </div>
 </html>

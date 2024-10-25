@@ -97,6 +97,18 @@ public class ArticleController {
 
         return "redirect:/article/list";
     }
+
+    @PostMapping("/article/comment/{id}")
+    public String createComment(@PathVariable("id") Long id, @RequestParam("content") String content, Principal principal) {
+        Article article = this.articleService.findById(id).orElse(null);
+
+        Member member= this.memberService.getMember(principal.getName());
+
+        this.articleService.createComment(article, member, content);
+
+        return String.format("redirect:/article/detail/%d", id);
+    }
+
 }
 
 

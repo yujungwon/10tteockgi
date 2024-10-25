@@ -1,6 +1,8 @@
 package com.project._tteockgi.domain.article.service;
 
 import com.project._tteockgi.domain.article.entity.Article;
+import com.project._tteockgi.domain.article.entity.ArticleComment;
+import com.project._tteockgi.domain.article.repository.ArticleCommentRepository;
 import com.project._tteockgi.domain.article.repository.ArticleRepository;
 import com.project._tteockgi.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,7 @@ import java.util.Optional;
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
+    private final ArticleCommentRepository articleCommentRepository;
 
     public List<Article> getList() {
         return articleRepository.findAll();
@@ -45,6 +48,15 @@ public class ArticleService {
 
     public void delete(Long id) {
         this.articleRepository.deleteById(id);
+    }
+
+    public void createComment(Article article, Member member, String content) {
+        ArticleComment ac = new ArticleComment();
+        ac.setArticle(article);
+        ac.setMember(member);
+        ac.setContent(content);
+
+        this.articleCommentRepository.save(ac);
     }
 }
 

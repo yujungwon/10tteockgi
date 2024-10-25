@@ -2,14 +2,14 @@ package com.project._tteockgi.domain.article.entity;
 
 import com.project._tteockgi.domain.member.entity.Member;
 import com.project._tteockgi.global.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,4 +29,7 @@ public class Article extends BaseEntity {
 
     @Column
     private int price;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.REMOVE)
+    private List<ArticleComment> commentList;
 }

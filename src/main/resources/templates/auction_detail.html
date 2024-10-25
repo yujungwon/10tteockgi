@@ -15,7 +15,14 @@
         <a th:href="@{|/auction/delete/${auction.id}|}" type="button">삭제</a>
     </footer>
     <div>댓글창</div>
-    <textarea></textarea>
-    <button>댓글 등록</button>
+    <form th:action="@{|/auction/comment/${auction.id}|}" method="post">
+        <textarea name="content"></textarea>
+        <button type="submit">댓글 등록</button>
+    </form>
+
+    <ul>
+        <li th:each="comment : ${auction.commentList}">[[${comment.content}]]</li>
+    </ul>
+
 </div>
 </html>

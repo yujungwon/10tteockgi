@@ -1,6 +1,8 @@
 package com.project._tteockgi.domain.auction.service;
 
 import com.project._tteockgi.domain.auction.entity.Auction;
+import com.project._tteockgi.domain.auction.entity.AuctionComment;
+import com.project._tteockgi.domain.auction.repository.AuctionCommentRepository;
 import com.project._tteockgi.domain.auction.repository.AuctionRepository;
 import com.project._tteockgi.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +15,7 @@ import java.util.Optional;
 @Service
 public class AuctionService {
     private final AuctionRepository auctionRepository;
+    private final AuctionCommentRepository auctionCommentRepository;
 
     public List<Auction> getList() {
         return auctionRepository.findAll();
@@ -60,5 +63,15 @@ public class AuctionService {
         auction.setTitle(title);
         auction.setContent(content);
         auction.setStartPrice(startPrice);
+    }
+
+    public void createComment(Auction auction, Member member, String content) {
+        AuctionComment ac = new AuctionComment();
+        ac.setAuction(auction);
+        ac.setMember(member);
+        ac.setContent(content);
+
+        this.auctionCommentRepository.save(ac);
+
     }
 }

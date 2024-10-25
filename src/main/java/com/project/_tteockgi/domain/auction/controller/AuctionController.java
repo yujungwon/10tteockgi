@@ -91,4 +91,15 @@ public class AuctionController {
 
         return "redirect:/auction/list";
     }
+
+    @PostMapping("/auction/comment/{id}")
+    public String createComment(@PathVariable("id") Long id, @RequestParam("content") String content, Principal principal) {
+        Auction auction = this.auctionService.findById(id).orElse(null);
+
+        Member member= this.memberService.getMember(principal.getName());
+
+        this.auctionService.createComment(auction, member, content);
+
+        return String.format("redirect:/auction/detail/%d", id);
+    }
 }
