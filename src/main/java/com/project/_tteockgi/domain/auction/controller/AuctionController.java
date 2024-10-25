@@ -5,7 +5,6 @@ import com.project._tteockgi.domain.auction.service.AuctionService;
 import com.project._tteockgi.domain.member.entity.Member;
 import com.project._tteockgi.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -79,7 +77,7 @@ public class AuctionController {
         Member member = this.memberService.getMember(principal.getName());
         Auction auction = this.auctionService.findById(id).orElse(null);
 
-        auctionService.Modifiy(auction, title, content, member, startPrice);
+        auctionService.Modify(auction, title, content, member, startPrice);
         return String.format("redirect:/auction/detail/%s", id);
     }
 

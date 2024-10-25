@@ -55,14 +55,16 @@ public class AuctionService {
 
 
     public void delete(Long id) {
-        this.auctionRepository.findById(id);
+        this.auctionRepository.deleteById(id);
     }
 
-    public void Modifiy(Auction auction, String title, String content, Member member, int startPrice) {
+    public void Modify(Auction auction, String title, String content, Member member, int startPrice) {
         auction.setMember(member);
         auction.setTitle(title);
         auction.setContent(content);
         auction.setStartPrice(startPrice);
+
+        this.auctionRepository.save(auction);
     }
 
     public void createComment(Auction auction, Member member, String content) {
