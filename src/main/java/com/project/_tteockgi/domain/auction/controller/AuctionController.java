@@ -51,9 +51,7 @@ public class AuctionController {
     public String createAuction(@RequestParam("title") String title,
                                 @RequestParam("content") String content,
                                 @RequestParam("startPrice") int startPrice,
-                                @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime startDate,
-                                @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd")  LocalDateTime endDate,
-                                Principal principal) {
+                              Principal principal) {
 
         Member member = this.memberService.getMember(principal.getName());
 
